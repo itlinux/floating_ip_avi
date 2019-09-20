@@ -1,0 +1,33 @@
+# Auto-generated from Avi Configuration
+---
+- connection: local
+  hosts: localhost
+  vars_files:
+    - creds.yml
+  tasks:
+  - avi_networkservice:
+      api_context: '{{avi_api_context | default(omit)}}'
+      api_version: '{{ api_version }}'
+      cloud_ref: '/api/cloud?name={{ cloud_name }}'
+      controller: '{{ controller_ip }}'
+      name: '{{ tenant_name }}'
+      password: '{{ password }}'
+      routing_service:
+        advertise_backend_networks: false
+        enable_routing: true
+        enable_vip_on_all_interfaces: true
+        enable_vmac: false
+        floating_intf_ip:
+        - addr: '{{ floating_ip }}'
+          type: V4
+        routing_by_linux_ipstack: false
+      se_group_ref: '/api/serviceenginegroup/?name={{ service_engine_group_name }}'
+      service_type: ROUTING_SERVICE
+      tenant: '{{ tenant_name }}'
+      tenant_ref: '/api/tenant/?name={{ tenant_name }}'
+      username: '{{ username }}'
+      vrf_ref: /api/vrfcontext/?name=global
+    name: 'Create or Update NetworkService: {{ tenant_name }}'
+    tags:
+    -  '{{ tenant_name }}'
+    - networkservice

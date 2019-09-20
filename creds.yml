@@ -1,0 +1,12 @@
+controller_ip: 10.56.0.125
+api_version: 18.2.6
+avi_version: 18.2.6
+username:  admin
+password:  'mypasswordgoeshere'
+tenant: admin
+floating_ip: 10.56.100.129
+tenant_name: remo
+group_name: remo
+cloud_name: VMware
+service_engine_group_name: DMZ
+
