@@ -1,1 +1,3 @@
 = Floating IP for SNAT since it's not in the UI until next release!
+
+NOTE: You need to use the Avitools Docker image to push this. 
